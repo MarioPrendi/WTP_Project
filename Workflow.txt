@@ -1,0 +1,147 @@
+Objective: Develop a functional travel website where visitors can explore destinations, create personalized trip plans, save favorite destinations and submit simulated bookings.
+
+Website Structure
+Page			Functionality
+Home			Introduction and featured destinations
+Destinations		Browse, search, filter and sort destinations
+Trip Planner		Create trips and calculate estimated costs
+Booking			Submit and validate booking forms
+Favorites		View and manage saved destinations
+
+Workload Division
+
+Member 1 – Homepage & Destinations
+HTML/CSS responsibilities:
+- Homepage and navigation bar.
+- Destinations page.
+- Destination cards.
+- Search and filter interface.
+- Responsive design.
+JavaScript responsibilities:
+- Store destinations in arrays and objects.
+- Dynamically generate destination cards.
+- Search destinations by name or country.
+- Filter by category and price.
+- Sort destinations by price.
+Files:
+- index.html
+- destinations.html
+- css/style.css
+- css/destinations.css
+- js/data.js
+- js/main.js
+- js/destinations.js
+
+Member 2 – Trip Planner
+HTML/CSS responsibilities:
+- Trip planner page.
+- Destination selection interface.
+- Travel date inputs.
+- Selected destinations list.
+- Trip summary and cost display.
+JavaScript responsibilities:
+- Add destinations to a trip.
+- Remove destinations.
+- Calculate estimated trip costs.
+- Calculate trip duration.
+- Validate travel dates.
+- Save and retrieve planned trips using Local Storage.
+Files:
+- planner.html
+- css/planner.css
+- js/planner.js
+
+Member 3 – Booking & Favorites
+HTML/CSS responsibilities:
+- Booking page.
+- Booking confirmation interface.
+- Favorites page.
+- Contact form (optional).
+JavaScript responsibilities:
+- Booking form validation.
+- Validate email and required fields.
+- Calculate final booking price.
+- Save booking information in Local Storage.
+- Add and remove favorite destinations.
+- Display saved bookings and favorites.
+Files:
+- booking.html
+- favorites.html
+- css/booking.css
+- css/favorites.css
+- js/booking.js
+- js/favorites.js
+
+Shared responsibilities: All three members participate in integration, testing, debugging and final presentation.
+
+4. Project Architecture
+TravelEase/
+│
+├── index.html
+├── destinations.html
+├── planner.html
+├── booking.html
+├── favorites.html
+│
+├── css/
+│   ├── style.css
+│   ├── destinations.css
+│   ├── planner.css
+│   ├── booking.css
+│   └── favorites.css
+│
+├── js/
+│   ├── data.js
+│   ├── main.js
+│   ├── destinations.js
+│   ├── planner.js
+│   ├── booking.js
+│   ├── favorites.js
+│   └── storage.js
+│
+├── images/
+│   ├── destinations/
+│   └── general/
+│
+└── README.md
+
+Shared Destination Data Structure
+All members must use the same destination object structure.
+let destinations = [
+    {
+        id: 1,
+        name: "Paris",
+        country: "France",
+        category: "City",
+        price: 450,
+        duration: 5,
+        image: "images/destinations/paris.jpg",
+        description: "Explore the city of love."
+    },
+    {
+        id: 2,
+        name: "Bali",
+        country: "Indonesia",
+        category: "Beach",
+        price: 900,
+        duration: 7,
+        image: "images/destinations/bali.jpg",
+        description: "Enjoy tropical beaches."
+    }
+];
+
+5. JavaScript Concepts to Demonstrate
+Concept	Application
+Variables and data types	Store destination information
+Arrays and objects		Destination collections
+DOM manipulation		Generate destination cards
+Event listeners			Handle clicks and forms
+Functions			Calculate trip prices
+Loops				Display destinations
+Array methods			Search, filter and sort
+Conditional statements		Validate bookings
+Form validation			Validate user information
+Regular expressions		Validate email format
+Date object			Calculate trip duration
+Local Storage			Save favorites and bookings
+JSON				Store and retrieve structured information
