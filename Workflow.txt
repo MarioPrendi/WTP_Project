@@ -11,7 +11,7 @@ Favorites		    View and manage saved destinations
 
 Workload Division
 
-Evita Peposhi: Homepage & Destinations
+Evita Peposhi-> Homepage & Destinations
 HTML/CSS responsibilities:
 - Homepage and navigation bar.
 - Destinations page.
@@ -33,7 +33,7 @@ Files:
 - js/main.js
 - js/destinations.js
 
-Sara Alcani: Trip Planner
+Sara Alcani-> Trip Planner
 HTML/CSS responsibilities:
 - Trip planner page.
 - Destination selection interface.
@@ -52,7 +52,7 @@ Files:
 - css/planner.css
 - js/planner.js
 
-Mario Prendi: Booking & Favorites
+Mario Prendi-> Booking & Favorites
 HTML/CSS responsibilities:
 - Booking page.
 - Booking confirmation interface.
