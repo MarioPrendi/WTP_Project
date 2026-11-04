@@ -1,16 +1,17 @@
-Objective: Develop a functional travel website where visitors can explore destinations, create personalized trip plans, save favorite destinations and submit simulated bookings.
+Objective: Develop a functional travel website where visitors can explore destinations, 
+create personalized trip plans, save favorite destinations and submit simulated bookings.
 
 Website Structure
-Page			Functionality
-Home			Introduction and featured destinations
+Page			    Functionality
+Home			    Introduction and featured destinations
 Destinations		Browse, search, filter and sort destinations
 Trip Planner		Create trips and calculate estimated costs
-Booking			Submit and validate booking forms
-Favorites		View and manage saved destinations
+Booking			    Submit and validate booking forms
+Favorites		    View and manage saved destinations
 
 Workload Division
 
-Member 1 – Homepage & Destinations
+Evita Peposhi: Homepage & Destinations
 HTML/CSS responsibilities:
 - Homepage and navigation bar.
 - Destinations page.
@@ -32,7 +33,7 @@ Files:
 - js/main.js
 - js/destinations.js
 
-Member 2 – Trip Planner
+Sara Alcani: Trip Planner
 HTML/CSS responsibilities:
 - Trip planner page.
 - Destination selection interface.
@@ -51,7 +52,7 @@ Files:
 - css/planner.css
 - js/planner.js
 
-Member 3 – Booking & Favorites
+Mario Prendi: Booking & Favorites
 HTML/CSS responsibilities:
 - Booking page.
 - Booking confirmation interface.
@@ -74,7 +75,7 @@ Files:
 
 Shared responsibilities: All three members participate in integration, testing, debugging and final presentation.
 
-4. Project Architecture
+Project Architecture
 TravelEase/
 │
 ├── index.html
@@ -130,18 +131,18 @@ let destinations = [
     }
 ];
 
-5. JavaScript Concepts to Demonstrate
+JavaScript Concepts to Demonstrate
 Concept	Application
 Variables and data types	Store destination information
-Arrays and objects		Destination collections
-DOM manipulation		Generate destination cards
-Event listeners			Handle clicks and forms
-Functions			Calculate trip prices
-Loops				Display destinations
-Array methods			Search, filter and sort
+Arrays and objects		    Destination collections
+DOM manipulation		    Generate destination cards
+Event listeners			    Handle clicks and forms
+Functions			        Calculate trip prices
+Loops				        Display destinations
+Array methods			    Search, filter and sort
 Conditional statements		Validate bookings
-Form validation			Validate user information
-Regular expressions		Validate email format
-Date object			Calculate trip duration
-Local Storage			Save favorites and bookings
-JSON				Store and retrieve structured information
+Form validation			    Validate user information
+Regular expressions		    Validate email format
+Date object			        Calculate trip duration
+Local Storage			    Save favorites and bookings
+JSON				        Store and retrieve structured information
