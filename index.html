@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang = "en">
+    <head>
+        <meta charset= "UTF-8">
+        <title>Travel Explorer</title>
+    </head>
+
+    <body>
+        <h1>My Destinations</h1>
+
+        <h2>Features Destinations</h2>
+
+        <!--search bar-->
+        <section class = "search-section">
+            <input
+                type = "text"
+                id = "searchInput"
+                placeholder = "Search for a destination: "
+            >
+            <!--dropdown menu-->
+            <select id = "categoryFilter">
+                <option value = "all">All Categories</option>
+                <option value = "beaches">Beaches</option>
+                <option value = "mountains">Mountains</option>
+                <option value = "historical cities">Historical Cities</option>
+                <option value = "cities">Cities</option>
+            </select>
+        </section>
+
+        <div id = "featured-container"></featured-conatiner></div> <!--empty container where ill insert the destination cards-->
+
+        <script src = "js/data.js"></script>
+        <script src = "js/main.js"></script>
+        <link rel = "stylesheet" href = "css/style.css">
+    </body>
+</html>
