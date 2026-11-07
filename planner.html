@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TravelEase | Trip Planner</title>
+
+    <link rel="stylesheet" href="css/planner.css">
+</head>
+
+<body>
+
+    <!-- Navigation Bar -->
+    <header>
+        <nav class="navbar">
+
+            <h2 class="logo">TravelEase</h2>
+
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="destinations.html">Destinations</a></li>
+                <li><a href="planner.html" class="active">Trip Planner</a></li>
+                <li><a href="booking.html">Booking</a></li>
+                <li><a href="favorites.html">Favorites</a></li>
+            </ul>
+
+        </nav>
+    </header>
+
+
+    <!-- Main Content -->
+    <main>
+
+        <!-- Page Introduction -->
+        <section class="planner-intro">
+            <h1>Create Your Travel Plan</h1>
+            <p>Organize your next adventure by selecting destinations and planning your journey.</p>
+        </section>
+
+
+        <!-- Trip Details Card -->
+        <section class="trip-details-section">
+
+            <div class="planner-card">
+
+                <div class="card-header">
+                    <h2>01. Trip Details</h2>
+                    <p>Enter your basic travel information.</p>
+                </div>
+
+                <div class="trip-form">
+
+                    <div class="form-group">
+                        <label for="startDate">Departure Date</label>
+                        <input type="date" id="startDate">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="endDate">Return Date</label>
+                        <input type="date" id="endDate">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="travelers">Number of Travelers</label>
+                        <input type="number" id="travelers" min="1" value="1">
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- Destination Selection Card -->
+        <section class="destination-selection-section">
+
+            <div class="planner-card">
+
+                <div class="card-header">
+                    <h2>02. Choose Your Destinations</h2>
+                    <p>Select the places you would like to visit.</p>
+                </div>
+
+                <div class="destination-selection">
+
+                    <div class="form-group">
+                        <label for="destinationSelect">Available Destinations</label>
+
+                        <select id="destinationSelect">
+                            <option value="">Select a destination</option>
+                        </select>
+                    </div>
+
+                    <button type="button" class="add-btn">
+                        + Add Destination
+                    </button>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- Selected Destinations Section -->
+        <section class="selected-destinations-section">
+
+            <div class="planner-card">
+
+                <div class="card-header">
+                    <h2>03. Your Itinerary</h2>
+                    <p>Manage the destinations included in your trip.</p>
+                </div>
+
+                <div class="selected-list">
+
+                    <div class="empty-message">
+                        <h3>No destinations added yet</h3>
+                        <p>Your selected destination cards will appear here.</p>
+                    </div>
+
+                    <!-- Destination cards will be added here using JavaScript -->
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- Trip Summary Section -->
+        <section class="trip-summary-section">
+
+            <div class="planner-card">
+
+                <div class="card-header">
+                    <h2>04. Trip Summary</h2>
+                    <p>Review the details of your planned journey.</p>
+                </div>
+
+                <div class="summary-content">
+
+                    <div class="summary-item">
+                        <span>Number of Destinations</span>
+                        <span>0</span>
+                    </div>
+
+                    <div class="summary-item">
+                        <span>Number of Travelers</span>
+                        <span>1</span>
+                    </div>
+
+                    <div class="summary-item">
+                        <span>Trip Duration</span>
+                        <span>0 days</span>
+                    </div>
+
+                    <div class="summary-item total-cost">
+                        <span>Estimated Total Cost</span>
+                        <span>€0</span>
+                    </div>
+
+                </div>
+
+                <button type="button" class="save-btn">
+                    Save My Trip
+                </button>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 TravelEase. All rights reserved.</p>
+    </footer>
+
+</body>
+</html>
