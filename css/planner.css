@@ -1,0 +1,293 @@
+
+/* GENERAL STYLING */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+}
+
+
+/* NAVIGATION BAR */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 8%;
+}
+
+.logo {
+    font-size: 26px;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    list-style: none;
+}
+
+.nav-links a {
+    text-decoration: none;
+    font-size: 15px;
+}
+
+
+/* PAGE INTRODUCTION */
+.planner-intro {
+    text-align: center;
+    padding: 50px 20px 35px;
+}
+
+.planner-intro h1 {
+    font-size: 36px;
+    margin-bottom: 10px;
+}
+
+.planner-intro p {
+    font-size: 16px;
+    max-width: 650px;
+    margin: 0 auto;
+}
+
+
+/* MAIN PAGE LAYOUT */
+main {
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.trip-details-section,
+.destination-selection-section,
+.selected-destinations-section,
+.trip-summary-section {
+    margin-bottom: 25px;
+}
+
+
+/* PLANNER CARDS */
+.planner-card {
+    width: 100%;
+    padding: 30px;
+    border: 1px solid;
+    border-radius: 12px;
+}
+
+.card-header {
+    margin-bottom: 25px;
+}
+
+.card-header h2 {
+    font-size: 22px;
+    margin-bottom: 5px;
+}
+
+.card-header p {
+    font-size: 14px;
+}
+
+
+/* TRIP DETAILS FORM */
+.trip-form {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.form-group label {
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.form-group input,
+.form-group select {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid;
+    border-radius: 6px;
+    font-size: 15px;
+}
+
+
+/* DESTINATION SELECTION */
+.destination-selection {
+    display: flex;
+    align-items: flex-end;
+    gap: 20px;
+}
+
+.destination-selection .form-group {
+    flex: 1;
+}
+
+.add-btn,
+.save-btn {
+    padding: 12px 22px;
+    border: 1px solid;
+    border-radius: 6px;
+    font-size: 15px;
+    cursor: pointer;
+}
+
+
+/* SELECTED DESTINATIONS */
+.selected-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+}
+
+.empty-message {
+    grid-column: 1 / -1;
+    text-align: center;
+    padding: 35px 15px;
+}
+
+.empty-message h3 {
+    font-size: 18px;
+    margin-bottom: 8px;
+}
+
+.empty-message p {
+    font-size: 14px;
+}
+
+
+/* DESTINATION CARD STRUCTURE */
+/* Used later when JavaScript generates destination cards */
+
+.destination-card {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    padding: 15px;
+    border: 1px solid;
+    border-radius: 10px;
+}
+
+.destination-card img {
+    width: 120px;
+    height: 100px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+.destination-info {
+    flex: 1;
+}
+
+.destination-info h3 {
+    font-size: 18px;
+    margin-bottom: 5px;
+}
+
+.destination-info p {
+    font-size: 14px;
+}
+
+.remove-btn {
+    padding: 8px 12px;
+    border: 1px solid;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+
+/* TRIP SUMMARY */
+.summary-content {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.summary-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 12px 0;
+    border-bottom: 1px solid;
+}
+
+.total-cost {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.save-btn {
+    width: 100%;
+    margin-top: 25px;
+}
+
+
+/* FOOTER */
+footer {
+    text-align: center;
+    padding: 25px;
+    margin-top: 50px;
+}
+
+
+/* RESPONSIVE DESIGN */
+@media screen and (max-width: 768px) {
+
+    .navbar {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .nav-links {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 15px;
+    }
+
+    .trip-form {
+        grid-template-columns: 1fr;
+    }
+
+    .selected-list {
+        grid-template-columns: 1fr;
+    }
+
+    .destination-selection {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .destination-card {
+        flex-wrap: wrap;
+    }
+
+}
+
+@media screen and (max-width: 480px) {
+
+    .planner-intro h1 {
+        font-size: 27px;
+    }
+
+    .planner-card {
+        padding: 20px;
+    }
+
+    .destination-card img {
+        width: 100%;
+        height: 170px;
+    }
+
+    .nav-links {
+        gap: 10px;
+    }
+
+}
