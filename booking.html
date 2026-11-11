@@ -1,0 +1,97 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TravelEase - Booking</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/booking.css">
+</head>
+<body>
+
+    <header>
+        <nav class="navbar">
+            <h2 class="logo">TravelEase</h2>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="destinations.html">Destinations</a></li>
+                <li><a href="planner.html">Trip Planner</a></li>
+                <li><a href="booking.html" class="active">Booking</a></li>
+                <li><a href="favorites.html">Favorites</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main class="booking-container">
+
+        <section class="booking-intro">
+            <h1>Book Your Trip</h1>
+            <p>Fill in the form below to book your next adventure.</p>
+        </section>
+
+        <section class="booking-card">
+            <form id="bookingForm">
+
+                <div class="form-group">
+                    <label for="fullName">Full Name</label>
+                    <input type="text" id="fullName" placeholder="Enter your full name">
+                    <span class="error" id="nameError"></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Email</label>
+                    <input type="text" id="email" placeholder="Enter your email">
+                    <span class="error" id="emailError"></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="phone">Phone Number</label>
+                    <input type="text" id="phone" placeholder="Enter your phone number">
+                    <span class="error" id="phoneError"></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="destination">Destination</label>
+                    <select id="destination">
+                        <option value="">Select a destination</option>
+                    </select>
+                    <span class="error" id="destinationError"></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="travelers">Number of Travelers</label>
+                    <input type="number" id="travelers" min="1" value="1">
+                    <span class="error" id="travelersError"></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="startDate">Start Date</label>
+                    <input type="date" id="startDate">
+                    <span class="error" id="startDateError"></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="endDate">End Date</label>
+                    <input type="date" id="endDate">
+                    <span class="error" id="endDateError"></span>
+                </div>
+
+                <div class="price-summary">
+                    <p>Estimated Total:</p>
+                    <h2 id="totalPrice">€0</h2>
+                </div>
+
+                <button type="submit" class="submit-btn">Confirm Booking</button>
+
+            </form>
+
+            <div id="bookingMessage"></div>
+        </section>
+
+    </main>
+
+    <script src="js/data.js"></script>
+    <script src="js/booking.js"></script>
+</body>
+</html>
