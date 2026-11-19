@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TravelEase | Home</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="site home">
+
+    <!-- Navigation Bar -->
+    <header class="site-header">
+        <nav class="navbar">
+            <h2 class="logo">TravelEase</h2>
+            <ul class="nav-links">
+                <li><a href="index.html" class="active">Home</a></li>
+                <li><a href="destinations.html">Destinations</a></li>
+                <li><a href="planner.html">Trip Planner</a></li>
+                <li><a href="booking.html">Booking</a></li>
+                <li><a href="favorites.html">Favorites <span id="favCount" class="badge" hidden>0</span></a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <!-- Hero -->
+        <section class="hero" id="hero">
+            <div class="hero-content">
+                <h1>Discover Albania, one trip at a time</h1>
+                <p>Browse beaches, mountains and historic cities, save the ones you love, and plan your trip with an estimated cost.</p>
+                <div class="hero-actions">
+                    <a href="destinations.html" class="btn btn-primary">Explore destinations</a>
+                    <a href="planner.html" class="btn btn-light">Plan a trip</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Quick stats (filled by main.js) -->
+        <section class="stats" id="stats" aria-label="Site summary"></section>
+
+        <!-- Featured destinations -->
+        <section class="featured">
+            <div class="section-head">
+                <h2>Featured destinations</h2>
+                <input type="search" id="homeSearch" placeholder="Search by name or country" aria-label="Search destinations">
+            </div>
+
+            <div class="chips" id="chips" role="group" aria-label="Filter by category"></div>
+
+            <div id="featured-container" class="card-grid"></div>
+            <p id="noResults" class="empty" hidden>No destinations match your search. Try another name or category.</p>
+
+            <div class="more">
+                <a href="destinations.html" class="btn btn-primary">See all destinations</a>
+            </div>
+        </section>
+
+        <!-- How it works -->
+        <section class="steps">
+            <h2>Plan in three steps</h2>
+            <div class="steps-grid">
+                <a href="destinations.html" class="step">
+                    <h3>Find a place</h3>
+                    <p>Search and filter destinations by category and price.</p>
+                </a>
+                <a href="planner.html" class="step">
+                    <h3>Build your trip</h3>
+                    <p>Pick your dates and destinations to see the estimated cost.</p>
+                </a>
+                <a href="booking.html" class="step">
+                    <h3>Book it</h3>
+                    <p>Fill in the booking form and get a confirmation.</p>
+                </a>
+            </div>
+        </section>
+    </main>
+
+    <footer class="site-footer">
+        <p>TravelEase &copy; 2026</p>
+    </footer>
+
+    <script src="js/data.js"></script>
+    <script src="js/main.js"></script>
+</body>
+</html>

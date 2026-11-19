@@ -1,86 +1,15 @@
+/* Favorites page. Shared look (navbar, footer, palette) comes from style.css */
+.favorites-container { max-width: 1100px; margin: 0 auto; padding: 32px 20px 40px; }
+.favorites-intro { text-align: center; margin-bottom: 28px; }
+.favorites-intro h1 { font-size: 36px; margin-bottom: 8px; }
+.favorites-intro p { color: var(--muted); }
 
-.favorites-container {
-    max-width: 1100px;
-    margin: 40px auto;
-    padding: 20px;
-}
-
-.navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px 8%;
-}
-
-.logo {
-    font-size: 26px;
-}
-
-.nav-links {
-    display: flex;
-    align-items: center;
-    gap: 30px;
-    list-style: none;
-}
-
-.nav-links a {
-    text-decoration: none;
-    font-size: 15px;
-}
-
-
-.favorites-intro {
-    text-align: center;
-    margin-bottom: 30px;
-}
-
-.favorites-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 25px;
-}
-
-.favorite-card {
-    background: white;
-    padding: 20px;
-    border: 1px solid #ddd;
-    border-radius: 12px;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
-}
-
-.favorite-card img {
-    width: 100%;
-    height: 180px;
-    object-fit: cover;
-    border-radius: 8px;
-}
-
-.favorite-card h3 {
-    color: #14264B;
-    margin-bottom: 8px;
-}
-
-.favorite-card p {
-    margin: 8px 0;
-}
-
-.favorite-card button {
-    width: 100%;
-    padding: 10px;
-    margin-top: 12px;
-    background: #14264B;
-    color: white;
-    border: none;
-    border-radius: 6px;
-    cursor: pointer;
-}
-
-.favorite-card button:hover {
-    background: #263f70;
-}
-
-.empty-message {
-    text-align: center;
-    grid-column: 1 / -1;
-    padding: 30px;
-}
+.favorites-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(290px, 1fr)); gap: 22px; }
+.favorite-card { background: #fff; padding: 0 0 16px; border: 1px solid var(--line); border-radius: 14px; overflow: hidden; transition: transform .2s, box-shadow .2s; }
+.favorite-card:hover { transform: translateY(-3px); box-shadow: 0 8px 22px rgba(14, 60, 70, .12); }
+.favorite-card img { width: 100%; height: 190px; object-fit: cover; display: block; }
+.favorite-card h3 { color: var(--ink); margin: 14px 16px 4px; font-size: 18px; }
+.favorite-card p { margin: 4px 16px; font-size: 14px; color: #3b4654; }
+.favorite-card button { width: calc(100% - 32px); margin: 14px 16px 0; padding: 10px; background: #fff; color: #c0392b; border: 1px solid #e6b8b2; border-radius: 8px; cursor: pointer; font-weight: bold; }
+.favorite-card button:hover { background: #fdf1ef; }
+.empty-message { text-align: center; grid-column: 1 / -1; padding: 40px 20px; color: var(--muted); }

@@ -6,13 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TravelEase | Trip Planner</title>
 
+    <link rel="stylesheet" href="css/style.css">
     <link rel="stylesheet" href="css/planner.css">
 </head>
 
-<body>
+<body class="site">
 
     <!-- Navigation Bar -->
-    <header>
+    <header class="site-header">
         <nav class="navbar">
 
             <h2 class="logo">TravelEase</h2>
@@ -93,7 +94,7 @@
                         </select>
                     </div>
 
-                    <button type="button" class="add-btn">
+                    <button type="button" class="add-btn" id="addDestinationBtn">
                         + Add Destination
                     </button>
 
@@ -114,7 +115,7 @@
                     <p>Manage the destinations included in your trip.</p>
                 </div>
 
-                <div class="selected-list">
+                <div class="selected-list" id="selectedList">
 
                     <div class="empty-message">
                         <h3>No destinations added yet</h3>
@@ -144,39 +145,51 @@
 
                     <div class="summary-item">
                         <span>Number of Destinations</span>
-                        <span>0</span>
+                        <span id="destinationCount">0</span>
                     </div>
 
                     <div class="summary-item">
                         <span>Number of Travelers</span>
-                        <span>1</span>
+                        <span id="travelerCount">1</span>
                     </div>
 
                     <div class="summary-item">
                         <span>Trip Duration</span>
-                        <span>0 days</span>
+                        <span id="tripDuration">0 days</span>
                     </div>
 
                     <div class="summary-item total-cost">
                         <span>Estimated Total Cost</span>
-                        <span>€0</span>
+                        <span id="totalCost">€0</span>
                     </div>
 
                 </div>
 
-                <button type="button" class="save-btn">
+                <button type="button" class="save-btn" id="saveTripBtn">
                     Save My Trip
                 </button>
+                <p id="saveMessage" class="save-message" role="status"></p>
 
             </div>
 
+        </section>
+
+        <!-- Saved Trips Section -->
+        <section class="saved-trips-section">
+            <div class="planner-card">
+                <div class="card-header">
+                    <h2>05. My Saved Trips</h2>
+                    <p>Trips you save are stored in this browser. Open one to edit it, or delete it.</p>
+                </div>
+                <div id="savedTrips" class="saved-list"></div>
+            </div>
         </section>
 
     </main>
 
 
     <!-- Footer -->
-    <footer>
+    <footer class="site-footer">
         <p>&copy; 2026 TravelEase. All rights reserved.</p>
     </footer>
 

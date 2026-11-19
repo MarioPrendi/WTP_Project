@@ -1,51 +1,83 @@
-const featuredContainer = document.getElementById("featured-container");
+// Destinations page: search, category + price filter, sort, favorites
 
-//forEach to loop thorugh every obj in the destinations array
-//innerHTML stores the html inside the container
-//+= means we are adding more content without replacing what was already there
-//backticks allow us to insert variables directly into strings 
-
+const container = document.getElementById("featured-container");
 const searchInput = document.getElementById("searchInput");
-
 const categoryFilter = document.getElementById("categoryFilter");
+const priceFilter = document.getElementById("priceFilter");
+const sortSelect = document.getElementById("sortSelect");
+const resultCount = document.getElementById("resultCount");
+const noResults = document.getElementById("noResults");
 
-function displayDestination(){
-    
-    const searchValue = searchInput.value.toLocaleLowerCase();
-    const selectedCategory = categoryFilter.value;
+// favorites use the same "favorites" key as favorites.js
+function getFavorites() {
+    try { return (JSON.parse(localStorage.getItem("favorites")) || []).map(Number); }
+    catch (e) { return []; }
+}
 
-    const filteredDestinations = destinations.filter(destination => {
+function updateFavCount() {
+    const badge = document.getElementById("favCount");
+    const count = getFavorites().length;
+    badge.textContent = count;
+    badge.hidden = count === 0;
+}
 
-        //checks whether the destination name matches the search
-        const matchesName = destination.name.toLocaleLowerCase().includes(searchValue);
+function toggleFavorite(id) {
+    let favs = getFavorites();
+    favs = favs.includes(id) ? favs.filter(f => f !== id) : favs.concat(id);
+    localStorage.setItem("favorites", JSON.stringify(favs));
+    updateFavCount();
+    displayDestination();
+}
 
-        //checks whether the destination belongs to the selected category
-        const matchesCategory = selectedCategory === "all" || destination.category.toLocaleLowerCase() === selectedCategory;
+function displayDestination() {
+    const text = searchInput.value.trim().toLowerCase();
+    const category = categoryFilter.value;
+    const maxPrice = priceFilter.value;
+    const favs = getFavorites();
 
-        //keeps destinations that satisfy both conditions
-        return matchesName && matchesCategory;
-    })
+    // keep destinations that match search, category and price
+    let list = destinations.filter(d =>
+        (d.name.toLowerCase().includes(text) || d.country.toLowerCase().includes(text)) &&
+        (category === "all" || d.category.toLowerCase() === category) &&
+        (maxPrice === "all" || d.price <= Number(maxPrice))
+    );
 
-    //this clears the container before displaying the results
-    featuredContainer.innerHTML = "";
+    // sort by price (copy first so data.js order is not changed)
+    if (sortSelect.value === "low") list = list.slice().sort((a, b) => a.price - b.price);
+    if (sortSelect.value === "high") list = list.slice().sort((a, b) => b.price - a.price);
 
-    filteredDestinations.forEach(destination => {
-         featuredContainer.innerHTML += `
-             <div class = "destination-card">
-                 <img src="${destination.image}" alt="${destination.name}">
-                 <h3>${destination.name}</h3>
-                 <p>Country${destination.country}</p>
-                 <p>Category${destination.category}</p>
-                 <p>Price${destination.price}</p>
-                 <p>${destination.description}</p>
-             </div>    
-         `;
+    container.innerHTML = "";
+    noResults.hidden = list.length > 0;
+    resultCount.textContent = list.length + (list.length === 1 ? " destination" : " destinations");
+
+    list.forEach(d => {
+        const isFav = favs.includes(d.id);
+        const card = document.createElement("article");
+        card.className = "home-card";
+        card.innerHTML = `
+            <div class="card-img">
+                <img src="${d.image}" alt="${d.name}" loading="lazy">
+                <button class="fav-btn" type="button" aria-pressed="${isFav}"
+                    aria-label="${isFav ? "Remove" : "Save"} ${d.name} ${isFav ? "from" : "to"} favorites">${isFav ? "\u2665" : "\u2661"}</button>
+            </div>
+            <div class="card-body">
+                <h3>${d.name}</h3>
+                <p class="card-meta">${d.country}, ${d.category}</p>
+                <p class="desc">${d.description}</p>
+                <div class="card-foot">
+                    <span class="price">From \u20AC${d.price}</span>
+                    <a href="planner.html">Plan this trip</a>
+                </div>
+            </div>`;
+        card.querySelector(".fav-btn").addEventListener("click", () => toggleFavorite(d.id));
+        container.appendChild(card);
     });
-};
+}
 
-//search event
 searchInput.addEventListener("input", displayDestination);
-//category event
 categoryFilter.addEventListener("change", displayDestination);
-//display all the destinations when the page loads
+priceFilter.addEventListener("change", displayDestination);
+sortSelect.addEventListener("change", displayDestination);
+
+updateFavCount();
 displayDestination();

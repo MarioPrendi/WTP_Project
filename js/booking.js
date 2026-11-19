@@ -137,8 +137,62 @@ bookingForm.addEventListener("submit", function(event) {
     localStorage.setItem("bookings", JSON.stringify(bookings));
 
     document.getElementById("bookingMessage").textContent =
-        "Your booking has been submitted successfully!";
+        "Booking confirmed! Reference TE-" + String(booking.id).slice(-6) +
+        " for " + booking.destination + ". You can see it under My bookings below.";
 
     bookingForm.reset();
+    renderBookings();
     totalPrice.textContent = "€0";
 });
+
+
+// ==========================================
+// MY BOOKINGS (list of saved bookings)
+// ==========================================
+
+const bookingsList = document.getElementById("bookingsList");
+
+function renderBookings() {
+    let bookings = JSON.parse(localStorage.getItem("bookings")) || [];
+    bookingsList.innerHTML = "";
+
+    if (bookings.length === 0) {
+        let empty = document.createElement("p");
+        empty.className = "empty-message";
+        empty.textContent = "No bookings yet. Confirm a booking above and it will appear here.";
+        bookingsList.appendChild(empty);
+        return;
+    }
+
+    bookings.slice().reverse().forEach(function(b) {
+        let item = document.createElement("div");
+        item.className = "saved-item";
+
+        let text = document.createElement("div");
+
+        let title = document.createElement("h3");
+        title.textContent = b.destination + " (TE-" + String(b.id).slice(-6) + ")";
+
+        let details = document.createElement("p");
+        details.textContent = b.fullName + " \u2022 " + b.startDate + " to " + b.endDate +
+            " \u2022 " + b.travelers + " traveler(s) \u2022 \u20AC" + b.totalPrice;
+
+        text.append(title, details);
+
+        let cancel = document.createElement("button");
+        cancel.type = "button";
+        cancel.className = "mini-btn danger";
+        cancel.textContent = "Cancel booking";
+        cancel.addEventListener("click", function() {
+            let remaining = (JSON.parse(localStorage.getItem("bookings")) || [])
+                .filter(function(x) { return x.id !== b.id; });
+            localStorage.setItem("bookings", JSON.stringify(remaining));
+            renderBookings();
+        });
+
+        item.append(text, cancel);
+        bookingsList.appendChild(item);
+    });
+}
+
+renderBookings();

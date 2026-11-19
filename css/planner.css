@@ -291,3 +291,28 @@ footer {
     }
 
 }
+
+
+/* ===== THEME: matches the homepage (colours, cards, forms, buttons) ===== */
+.site main { max-width: 1100px; margin: 0 auto; padding: 20px 20px 10px; }
+.planner-intro h1 { font-size: 36px; }
+.planner-intro p { color: var(--muted); }
+
+.planner-card { background: #fff; border: 1px solid var(--line); border-radius: 14px; box-shadow: 0 6px 18px rgba(14, 60, 70, .06); }
+.card-header h2 { color: var(--teal-dark); }
+.card-header p { color: var(--muted); }
+
+.form-group input, .form-group select { border: 1px solid var(--line); border-radius: 8px; font-family: inherit; background: #fff; color: var(--ink); }
+.form-group input:focus, .form-group select:focus { outline: 3px solid rgba(14, 124, 134, .25); border-color: var(--teal); }
+
+.add-btn, .save-btn { background: var(--teal); color: #fff; border: none; border-radius: 8px; font-weight: bold; transition: background .2s; }
+.add-btn:hover, .save-btn:hover { background: var(--teal-dark); }
+.remove-btn { background: #fff; color: #c0392b; border: 1px solid #e6b8b2; border-radius: 8px; font-weight: bold; }
+.remove-btn:hover { background: #fdf1ef; }
+
+.empty-message { color: var(--muted); }
+.destination-card { background: #fff; border: 1px solid var(--line); border-radius: 12px; }
+.destination-info p { color: var(--muted); }
+
+.summary-item { border-bottom: 1px solid var(--line); }
+.total-cost { color: var(--teal-dark); border-bottom: none; background: #eef7f8; padding: 14px 16px; border-radius: 10px; }

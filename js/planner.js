@@ -47,17 +47,25 @@ function loadDestinations() {
     destinationSelect.innerHTML =
         '<option value="">Select a destination</option>';
 
+    // Group the dropdown by category (Beaches, Mountains, ...)
+    const groups = {};
+
     availableDestinations.forEach(destination => {
+        if (!groups[destination.category]) {
+            groups[destination.category] = document.createElement("optgroup");
+            groups[destination.category].label = destination.category;
+        }
 
         const option = document.createElement("option");
 
         option.value = destination.id;
         option.textContent =
-            `${destination.name}, ${destination.country}`;
+            `${destination.name}, ${destination.country} (\u20AC${destination.price})`;
 
-        destinationSelect.appendChild(option);
-
+        groups[destination.category].appendChild(option);
     });
+
+    Object.values(groups).forEach(group => destinationSelect.appendChild(group));
 
 }
 
@@ -155,10 +163,7 @@ function renderSelectedDestinations() {
         const price = document.createElement("p");
         price.textContent = `Price: €${destination.price}`;
 
-        const duration = document.createElement("p");
-        duration.textContent = `Duration: ${destination.duration} days`;
-
-        info.append(name, country, category, price, duration);
+        info.append(name, country, category, price);
 
         // Create remove button
         const removeBtn = document.createElement("button");
@@ -380,7 +385,7 @@ function saveTrip() {
 
     saveMessage.textContent = "Your trip has been saved successfully!";
 
-    alert("Your trip has been saved!");
+    renderSavedTrips();
 
 }
 
@@ -474,3 +479,89 @@ saveTripBtn.addEventListener("click", saveTrip);
 loadDestinations();
 loadCurrentTrip();
 updateSummary();
+
+
+// ==========================================
+// 14. MY SAVED TRIPS (shown at the bottom of the page)
+// ==========================================
+
+const savedTripsBox = document.getElementById("savedTrips");
+
+function renderSavedTrips() {
+
+    const trips = getSavedTrips();
+    savedTripsBox.innerHTML = "";
+
+    if (trips.length === 0) {
+        const empty = document.createElement("p");
+        empty.className = "empty-message";
+        empty.textContent = "No saved trips yet. Build a trip above and press Save My Trip.";
+        savedTripsBox.appendChild(empty);
+        return;
+    }
+
+    trips.slice().reverse().forEach(trip => {
+
+        const item = document.createElement("div");
+        item.className = "saved-item";
+
+        const text = document.createElement("div");
+
+        const title = document.createElement("h3");
+        title.textContent = trip.destinations.map(d => d.name).join(", ");
+
+        const details = document.createElement("p");
+        details.textContent =
+            `${trip.departureDate} to ${trip.returnDate} \u2022 ` +
+            `${trip.travelers} traveler(s) \u2022 ${trip.tripDuration} days \u2022 ` +
+            `\u20AC${Number(trip.totalCost).toFixed(2)}`;
+
+        text.append(title, details);
+
+        const actions = document.createElement("div");
+        actions.className = "saved-actions";
+
+        const openBtn = document.createElement("button");
+        openBtn.type = "button";
+        openBtn.className = "mini-btn primary";
+        openBtn.textContent = "Open";
+        openBtn.addEventListener("click", () => openSavedTrip(trip.id));
+
+        const deleteBtn = document.createElement("button");
+        deleteBtn.type = "button";
+        deleteBtn.className = "mini-btn danger";
+        deleteBtn.textContent = "Delete";
+        deleteBtn.addEventListener("click", () => deleteSavedTrip(trip.id));
+
+        actions.append(openBtn, deleteBtn);
+        item.append(text, actions);
+        savedTripsBox.appendChild(item);
+
+    });
+
+}
+
+function openSavedTrip(tripId) {
+
+    const trip = getSavedTrips().find(t => t.id === tripId);
+
+    if (!trip) {
+        return;
+    }
+
+    localStorage.setItem(CURRENT_TRIP_KEY, JSON.stringify(trip));
+    loadCurrentTrip();
+    saveMessage.textContent = "Trip loaded. Edit it and press Save My Trip to save it again.";
+    window.scrollTo({ top: 0, behavior: "smooth" });
+
+}
+
+function deleteSavedTrip(tripId) {
+
+    const trips = getSavedTrips().filter(t => t.id !== tripId);
+    localStorage.setItem(SAVED_TRIPS_KEY, JSON.stringify(trips));
+    renderSavedTrips();
+
+}
+
+renderSavedTrips();
